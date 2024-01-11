@@ -1,0 +1,95 @@
+.instruction :is(.section-title, .section-text) {
+  text-align: center;
+}
+
+.instruction .section-title {
+  margin-block-end: 15px;
+}
+
+.instruction-list {
+  display: grid;
+  gap: 30px;
+  margin-block-start: 50px;
+}
+
+.instruction-card {
+  text-align: center;
+}
+
+.instruction-card .card-banner {
+  transition: var(--transition-2);
+}
+
+.instruction-card:hover .card-banner {
+  transform: rotateY(1turn);
+}
+
+.instruction-card .img {
+  margin-inline: auto;
+  margin-block-end: 12px;
+}
+
+.instruction-card .card-subtitle {
+  font-size: var(--fs-8);
+  font-weight: var(--fw-700);
+  text-transform: uppercase;
+}
+
+.instruction-card .card-title {
+  font-size: var(--fs-4);
+  margin-block: 5px 15px;
+}
+
+.instruction-card .card-text {
+  padding-inline: 20px;
+}
+
+@media (min-width: 768px) {
+  .instruction {
+    overflow: hidden;
+  }
+
+  .instruction .section-text {
+    max-width: 40ch;
+    margin-inline: auto;
+  }
+
+  .instruction-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .instruction-card {
+    position: relative;
+  }
+
+  .instruction-card::after {
+    content: '';
+    width: 160px;
+    height: 12px;
+    background-image: url('../../assets/images/connect-line.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 50px;
+    right: -95px;
+  }
+
+  .instruction-list > li:nth-child(even) .instruction-card::after {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .instruction-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .instruction-list > li:nth-child(even) .instruction-card::after {
+    display: block;
+  }
+
+  .instruction-list > li:last-child .instruction-card::after {
+    display: none;
+  }
+}
